@@ -1,122 +1,94 @@
-# 🚀 Dev HUB SENATI - Portal de Recursos Tecnológicos
+# Dev HUB SENATI - Portal de Recursos Tecnologicos
 
-> **Proyecto Colaborativo Académico**  
-> **Curso:** Desarrollo Web / Tecnologías de la Información & Software  
-> **Institución:** SENATI  
-> **Stack:** HTML5 Semántico + CSS3 Moderno (Vanilla) + JavaScript ES6+  
-> **Control de Versiones:** Git & GitHub
-
----
-
-## 📋 Descripción del Proyecto
-
-**Dev HUB SENATI** es una plataforma web interactiva diseñada para centralizar, categorizar y explorar recursos clave del ecosistema de la programación moderna (React, Node.js, Python, PostgreSQL, Flutter, Docker, Git, etc.). 
-
-El proyecto fue desarrollado simulando un entorno de trabajo colaborativo real, aplicando buenas prácticas de control de versiones con Git y GitHub mediante el uso de **ramas temáticas (feature branches)**, **commits convencionales/descriptivos** y **Pull Requests (solicitudes de integración)** con revisión entre pares.
+**Institucion:** SENATI  
+**Direccion Zonal:** Lima - Callao / Escuela de Tecnologias de la Informacion  
+**Curso:** Desarrollo Web & Control de Versiones  
+**Tecnologias:** HTML5, CSS3, JavaScript ES6+, Git y GitHub  
+**Repositorio:** [https://github.com/casasx25x/tarea-senati](https://github.com/casasx25x/tarea-senati)  
+**Despliegue Web:** [https://casasx25x.github.io/tarea-senati/](https://casasx25x.github.io/tarea-senati/)  
 
 ---
 
-## 🎯 Cumplimiento de Requisitos Obligatorios
+## 1. Descripcion del Proyecto
 
-| # | Requisito Obligatorio | Implementación en el Proyecto | Archivo / Ubicación |
-|---|-----------------------|--------------------------------|----------------------|
-| **1** | **Página de INICIO** | Nombre del portal, descripción de bienvenida, métricas en vivo y barra de navegación accesible. | `index.html` (`#inicio`, `#navbar`) |
-| **2** | **Catálogo de recursos** | 10 recursos curados (React, Node, Python, Postgres, Flutter, Git, Docker, Tailwind, Hugging Face, MongoDB) con nivel, tags y enlaces. | `app.js` (`resourcesData`), `index.html` (`#catalogo`) |
-| **3** | **Filtrado por Categorías** | Filtrado dinámico mediante JavaScript por: *Frontend, Backend, Base de Datos, Móvil, Herramientas, Inteligencia Artificial*. | `app.js` (`setCategoryFilter`, `renderCategoryPills`) |
-| **4** | **Buscador interactivo** | Input en tiempo real con debounce que busca por nombre, descripción, categoría y tags. | `app.js` (`setupEventListeners`, `searchInput`) |
-| **5** | **Diseño adaptable (Responsive)** | Layout fluido con CSS Grid y Flexbox. Totalmente optimizado para PC, tablets y teléfonos móviles con menú responsive. | `style.css` (Media Queries `@media (max-width: 768px)`) |
-| **6** | **Interactividad JS** | Sistema de favoritos persistente en `localStorage`, modal detallado con accesibilidad (tecla ESC), toasts animados y copiado rápido de enlaces y comandos Git. | `app.js` (`toggleFavorite`, `openResourceModal`, `showToast`) |
-| **7** | **Información del Equipo** | Sección con tarjetas de los integrantes, sus roles, responsabilidades técnicas y las ramas asignadas en Git. | `index.html` (`#equipo`), `app.js` (`teamMembers`) |
+Dev HUB SENATI es una plataforma web desarrollada de forma colaborativa para centralizar, catalogar y consultar herramientas y documentacion oficial de desarrollo de software (React, Node.js, Python, PostgreSQL, Flutter, Git, Docker, Tailwind CSS, MongoDB).
+
+El desarrollo se ejecuto aplicando buenas practicas profesionales de control de versiones con Git y GitHub:
+- Trabajo mediante ramas tematicas independientes (feature branches).
+- Commits semanticos y atomicos que describen puntualmente cada modificacion.
+- Solicitudes de integracion (Pull Requests) para revision y fusion de codigo en la rama principal (`main`).
 
 ---
 
-## 👥 Equipo de Trabajo y Distribución de Responsabilidades
+## 2. Integrantes del Equipo de Trabajo
 
-| Integrante | Rol Técnico | Responsabilidad en el Proyecto | Rama Asignada en Git |
-|------------|-------------|--------------------------------|-----------------------|
-| **Integrante 1** | **Git Master & Lead Architect** | Inicialización del repositorio, configuración de reglas de protección en GitHub, estructura semántica de `index.html`, revisión y aprobación de Pull Requests. | `feature/estructura-base` |
-| **Integrante 2** | **UI/UX & CSS Specialist** | Paleta de colores SENATI/Dark Mode, variables CSS, tipografías Google Fonts, diseño responsivo (PC y Celular), menú hamburguesa y micro-animaciones. | `feature/estilos-responsive` |
-| **Integrante 3** | **Frontend JS Developer** | Lógica en `app.js`, renderizado dinámico de recursos, motor de búsqueda en tiempo real, filtro por categoría, persistencia en `localStorage` y modales. | `feature/catalogo-logica-js` |
-| **Integrante 4** | **QA Tester & Documentación** | Pruebas funcionales en múltiples navegadores y dispositivos, redacción de la guía de comandos Git en `README.md` y soporte en resolución de conflictos. | `feature/pruebas-documentacion` |
+| Integrante | Rol Tecnico | Responsabilidad Asignada | Rama de Trabajo en Git |
+|------------|-------------|--------------------------|------------------------|
+| **Cristhian Santos** | Coordinador de Proyecto & Logica Frontend | Administracion del repositorio remoto en GitHub, diseno de la logica JavaScript (motor de busqueda reactivo, filtrado por tecnologias, almacenamiento de favoritos en LocalStorage y modales dinamicos). | `feature/catalogo-logica-js` |
+| **Wilian Coveñas** | Disenador UI/UX & Maquetacion CSS | Maquetado semantico en HTML5, arquitectura de estilos en CSS3 (variables, Flexbox y CSS Grid), optimizacion responsiva para PC y telefonos moviles, y redaccion de la documentacion tecnica. | `feature/estilos-responsive` |
 
 ---
 
-## 🌿 Flujo de Trabajo Colaborativo con Git y GitHub
+## 3. Matriz de Cumplimiento de Requisitos Obligatorios
 
-Para asegurar la calidad del código y cumplir con la rúbrica de SENATI, se aplicó la siguiente metodología:
+| Item | Requisito Obligatorio | Implementacion Tecnica | Archivo Fuente |
+|------|-----------------------|------------------------|----------------|
+| 1 | Pagina de Inicio | Encabezado institucional con nombre del portal, logotipo, descripcion clara de proposito y barra de navegacion fija con enlaces directos. | `index.html` (`#inicio`, `#navbar`) |
+| 2 | Catalogo de recursos | Coleccion de 9 recursos de programacion con nivel de dificultad, casos de uso, tags tecnicos y enlaces oficiales (supera el minimo de 6). | `app.js` (`resourcesData`) |
+| 3 | Filtrado por Categorias | Filtrado dinamico con JavaScript mediante tarjetas de acceso rapido y selector desplegable sincronizado (Frontend, Backend, Base de Datos, Movil, Herramientas). | `app.js` (`setCategoryFilter`) |
+| 4 | Buscador interactivo | Campo de texto reactivo con evento input y debounce que localiza recursos por coincidencia en nombre, descripcion, categoria o palabras clave. | `app.js` (`searchInput`) |
+| 5 | Diseno adaptable (Responsive) | Hojas de estilo estructuradas con CSS Grid y Flexbox. En pantallas moviles (< 768px), el menu se convierte en panel hamburguesa y las columnas se ajustan verticalmente. | `style.css` (`@media (max-width: 768px)`) |
+| 6 | Interactividad con JavaScript | Ventana modal con informacion extendida accesible mediante teclado (tecla Escape), favoritos persistentes en LocalStorage y notificaciones toast informativas. | `app.js` (`openResourceModal`, `toggleFavorite`, `showToast`) |
+| 7 | Informacion del Equipo | Seccion estructurada con fichas tecnicas de los dos integrantes, roles, responsabilidades y vinculos a sus ramas de desarrollo. | `index.html` (`#equipo`), `app.js` (`teamMembers`) |
 
-### 1. Clonar el Repositorio
+---
+
+## 4. Metodologia de Trabajo Git & GitHub
+
+El equipo adopto el flujo de trabajo estandarizado basado en ramas de caracteristica:
+
+### Paso 1: Clonar el proyecto
 ```bash
-git clone https://github.com/tu-usuario-o-organizacion/devhub-senati.git
-cd devhub-senati
+git clone https://github.com/casasx25x/tarea-senati.git
+cd tarea-senati
 ```
 
-### 2. Configurar la Identidad del Desarrollador
+### Paso 2: Crear rama individual asignada
 ```bash
-git config --global user.name "Tu Nombre Completo"
-git config --global user.email "tu_correo@senati.pe"
+git checkout -b feature/catalogo-logica-js
 ```
 
-### 3. Crear una Rama de Trabajo (Feature Branch)
-> ⚠️ **Regla de oro:** Nunca realizar commits directos a la rama `main`.
-```bash
-# Formato: feature/<nombre-del-modulo>
-git checkout -b feature/catalogo-filtros
-```
-
-### 4. Buenas Prácticas de Commits (Commits Convencionales)
-Cada cambio debe ser atómico y utilizar prefijos semánticos:
-- `feat:` Nueva funcionalidad añadida.
-- `fix:` Corrección de un error o bug.
-- `style:` Cambios visuales o ajustes de CSS sin alterar la lógica.
-- `docs:` Modificaciones en documentación o comentarios.
-- `refactor:` Optimización del código existente.
-
-**Ejemplo de commit:**
+### Paso 3: Confirmar cambios con commits descriptivos
 ```bash
 git add app.js
-git commit -m "feat(catalogo): agregar filtro reactivo por categorias y buscador"
+git commit -m "feat(catalogo): implementar motor de busqueda y filtros"
 ```
 
-### 5. Publicar la Rama en GitHub
+### Paso 4: Publicar rama en GitHub
 ```bash
-git push -u origin feature/catalogo-filtros
+git push origin feature/catalogo-logica-js
 ```
 
-### 6. Crear el Pull Request (PR) en GitHub
-1. Ir al repositorio en GitHub.
-2. Hacer clic en **"Compare & pull request"**.
-3. Llenar la plantilla con:
-   - **Título claro:** `feat: Implementación del catálogo interactivo`
-   - **Descripción:** Detallar qué se agregó o modificó.
-   - **Responsable:** Asignar al integrante autor.
-   - **Revisor (Reviewer):** Asignar al Git Master o a otro compañero.
-4. Tras la revisión cruzada y aprobación, se realiza el **Merge** a `main`.
+### Paso 5: Solicitud de Integracion (Pull Request)
+En la interfaz de GitHub, se crea la solicitud de integracion desde la rama de trabajo hacia `main`. Tras la revision de codigo correspondiente, se procede a la fusion limpia sin conflictos.
 
 ---
 
-## 📂 Estructura de Archivos del Proyecto
+## 5. Estructura de Archivos del Repositorio
 
 ```text
-Tarea/
-├── index.html        # Estructura semántica, accesibilidad y contenedores dinámicos
-├── style.css         # Sistema de diseño moderno, CSS Grid, Flexbox y media queries
-├── app.js            # Lógica dinámica, filtrado, búsqueda, modal, favoritos y toasts
-└── README.md         # Documentación técnica, roles y guía del flujo colaborativo
+tarea-senati/
+|-- index.html     # Estructura semantica HTML5 y maquetado de secciones
+|-- style.css      # Sistema de diseno institucional SENATI, responsivo y sobrio
+|-- app.js         # Logica de negocio, catalogo, filtros, busqueda y almacenamiento
+|-- README.md      # Memoria tecnica del proyecto y guia colaborativa
+`-- .gitignore     # Archivo de exclusion de temporales
 ```
 
 ---
 
-## 🖥️ Cómo Visualizar el Proyecto Localmente
+## 6. Instrucciones de Ejecucion Local
 
-1. Puedes abrir directamente el archivo `index.html` con cualquier navegador web moderno (Google Chrome, Microsoft Edge, Firefox, Brave).
-2. O con Visual Studio Code, mediante la extensión **Live Server** (clic derecho en `index.html` > *Open with Live Server*).
-
----
-
-## 🏆 Rúbrica de Evaluación SENATI
-- [x] Estructura HTML5 limpia y semántica.
-- [x] Hoja de estilo CSS propia (Vanilla), sin dependencias pesadas de frameworks.
-- [x] Interactividad completa con JavaScript puro.
-- [x] Control de versiones verificado mediante Git y GitHub con historial de commits y PRs.
-- [x] Identificación clara de cada integrante y su contribución específica.
+1. Clonar o descargar la carpeta del proyecto.
+2. Abrir el archivo `index.html` directamente en cualquier navegador web moderno (Google Chrome, Microsoft Edge, Mozilla Firefox).
+3. No requiere instalacion de librerias externas ni servidores pesados (JavaScript puro y CSS nativo).

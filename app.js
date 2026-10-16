@@ -1,42 +1,41 @@
 /**
- * DEV HUB SENATI - APLICACIÓN JAVASCRIPT
- * Funcionalidades: Catálogo dinámico, filtrado reactivo, buscador en tiempo real,
- * persistencia de favoritos con LocalStorage, modales interactivos y sistema de notificaciones toast.
+ * DEV HUB SENATI - MODULO PRINCIPAL JAVASCRIPT
+ * Arquitectura modular y funcional para la gestion de recursos tecnologicos.
+ * Funcionalidades: Catalogo dinamico, motor de busqueda reactivo, filtrado por categorias,
+ * gestion de favoritos con LocalStorage, ventana modal accesible y notificaciones toast.
  */
 
-// =============================================================================
-// 1. BASE DE DATOS DE RECURSOS TECNOLÓGICOS (Mínimo 6 obligatorios, aquí 10+)
-// =============================================================================
+// 1. Catalogo de Recursos Tecnologicos (Ecosistema de Programacion)
 const resourcesData = [
   {
     id: 'res-react',
     title: 'React.js',
     category: 'Frontend',
     icon: 'fa-brands fa-react',
-    iconColor: '#61dafb',
+    iconColor: '#00d8ff',
     level: 'Intermedio',
     popularity: 98,
-    shortDesc: 'Biblioteca de JavaScript declarativa y basada en componentes para construir interfaces de usuario web interactivas.',
-    fullDesc: 'React permite diseñar vistas simples para cada estado en tu aplicación, y se encargará de actualizar y renderizar de manera eficiente los componentes correctos cuando los datos cambien. Es el estándar de la industria para desarrollo SPA.',
+    shortDesc: 'Biblioteca de JavaScript declarativa y basada en componentes para la construccion de interfaces web interactivas.',
+    fullDesc: 'React facilita el diseno de vistas basadas en estados y renderiza eficientemente los componentes correspondientes cuando los datos cambian. Es ampliamente utilizado en la industria para el desarrollo de Single Page Applications (SPA).',
     tags: ['JavaScript', 'UI', 'Componentes', 'Virtual DOM'],
     officialUrl: 'https://react.dev',
     docsUrl: 'https://react.dev/learn',
-    useCase: 'Desarrollo de Single Page Applications (SPA), paneles de control y plataformas interactivas.'
+    useCase: 'Desarrollo de aplicaciones web de una sola pagina, dashboards y portales interactivos.'
   },
   {
     id: 'res-nodejs',
     title: 'Node.js',
     category: 'Backend',
     icon: 'fa-brands fa-node-js',
-    iconColor: '#68a063',
+    iconColor: '#539e43',
     level: 'Intermedio',
     popularity: 95,
-    shortDesc: 'Entorno de ejecución para JavaScript del lado del servidor, construido sobre el motor V8 de Google Chrome.',
-    fullDesc: 'Node.js utiliza un modelo de operaciones de E/S sin bloqueo y orientado a eventos, lo que lo hace ligero y eficiente. Es ideal para aplicaciones en tiempo real y servicios RESTful con JavaScript en todo el stack.',
-    tags: ['JavaScript', 'Servidor', 'API REST', 'Asíncrono'],
+    shortDesc: 'Entorno de ejecucion para JavaScript del lado del servidor, construido con el motor V8 de alto rendimiento.',
+    fullDesc: 'Node.js opera mediante un modelo asincrono no bloqueante orientado a eventos, optimizando el uso de recursos para aplicaciones en red y el desarrollo de APIs RESTful escalables.',
+    tags: ['JavaScript', 'Servidor', 'API REST', 'Asincrono'],
     officialUrl: 'https://nodejs.org',
     docsUrl: 'https://nodejs.org/en/docs',
-    useCase: 'Creación de APIs REST, microservicios y aplicaciones en tiempo real con WebSockets.'
+    useCase: 'Construccion de APIs REST, microservicios y sistemas en tiempo real.'
   },
   {
     id: 'res-python',
@@ -46,12 +45,12 @@ const resourcesData = [
     iconColor: '#3776ab',
     level: 'Principiante',
     popularity: 99,
-    shortDesc: 'Lenguaje de alto nivel conocido por su sintaxis limpia, legible y amplia versatilidad en backend, datos e IA.',
-    fullDesc: 'Python es uno de los lenguajes más populares del mundo. Con bibliotecas como FastAPI, Django, Pandas y TensorFlow, abarca desde servicios web robustos hasta análisis avanzado de datos e inteligencia artificial.',
-    tags: ['Lenguaje', 'Backend', 'Data Science', 'IA'],
+    shortDesc: 'Lenguaje de programacion multiproposito reconocido por su sintaxis clara, versatilidad y amplia biblioteca estandar.',
+    fullDesc: 'Python permite el desarrollo agil en backend con frameworks como FastAPI y Django, asi como en analisis de datos, automatizacion de procesos e implementacion de inteligencia artificial.',
+    tags: ['Lenguaje', 'Backend', 'Automatizacion', 'Ciencia de Datos'],
     officialUrl: 'https://www.python.org',
     docsUrl: 'https://docs.python.org/3/',
-    useCase: 'Desarrollo web con Django/FastAPI, automatización de tareas y modelos de machine learning.'
+    useCase: 'Desarrollo de servicios web, scripts de automatizacion y procesamiento de datos.'
   },
   {
     id: 'res-postgresql',
@@ -61,27 +60,27 @@ const resourcesData = [
     iconColor: '#336791',
     level: 'Intermedio',
     popularity: 92,
-    shortDesc: 'Sistema de gestión de bases de datos relacional y orientado a objetos de código abierto más avanzado del mundo.',
-    fullDesc: 'PostgreSQL destaca por su confiabilidad, robustez de datos y rendimiento en cargas de trabajo complejas. Soporta tipos de datos avanzados como JSONB, búsquedas de texto completo y extensiones geográficas como PostGIS.',
+    shortDesc: 'Sistema de gestion de bases de datos relacional y orientado a objetos de codigo abierto de grado empresarial.',
+    fullDesc: 'PostgreSQL destaca por su apego a estandares SQL, soporte nativo de transacciones ACID y manejo de tipos de datos complejos como JSONB y consultas geoespaciales avanzadas.',
     tags: ['SQL', 'Relacional', 'ACID', 'JSONB'],
     officialUrl: 'https://www.postgresql.org',
     docsUrl: 'https://www.postgresql.org/docs/',
-    useCase: 'Almacenamiento transaccional, sistemas empresariales y aplicaciones escalables.'
+    useCase: 'Almacenamiento transaccional seguro y modelado de datos para aplicaciones empresariales.'
   },
   {
     id: 'res-flutter',
     title: 'Flutter & Dart',
-    category: 'Móvil',
+    category: 'Movil',
     icon: 'fa-solid fa-mobile-screen-button',
     iconColor: '#02569b',
     level: 'Intermedio',
     popularity: 90,
-    shortDesc: 'Framework de Google para compilar aplicaciones multiplataforma nativas (Android, iOS, Web y Escritorio).',
-    fullDesc: 'Flutter ofrece una experiencia de desarrollo ultra rápida con Hot Reload y una suite completa de widgets personalizables que renderizan píxel por píxel con alto rendimiento en cualquier dispositivo.',
+    shortDesc: 'Kit de desarrollo de interfaz de usuario de Google para compilar aplicaciones multiplataforma desde un unico codigo fuente.',
+    fullDesc: 'Flutter compila a codigo de maquina nativo tanto para iOS como para Android, ofreciendo componentes personalizables y un motor de renderizado grafico de alta velocidad.',
     tags: ['Dart', 'Multiplataforma', 'Android', 'iOS'],
     officialUrl: 'https://flutter.dev',
     docsUrl: 'https://docs.flutter.dev',
-    useCase: 'Creación de aplicaciones para smartphones con una sola base de código compartido.'
+    useCase: 'Desarrollo de aplicaciones nativas para telefonos inteligentes y tabletas.'
   },
   {
     id: 'res-git-github',
@@ -91,12 +90,12 @@ const resourcesData = [
     iconColor: '#ffffff',
     level: 'Principiante',
     popularity: 100,
-    shortDesc: 'Sistema de control de versiones distribuido y la mayor plataforma de alojamiento de repositorios de software.',
-    fullDesc: 'Permite rastrear cambios en el código, trabajar en equipo mediante ramas de funcionalidad, revisiones de Pull Request y automatización con GitHub Actions. Indispensable para cualquier desarrollador profesional.',
-    tags: ['Control de Versiones', 'Colaboración', 'DevOps', 'CI/CD'],
+    shortDesc: 'Sistema de control de versiones distribuido y plataforma en la nube para trabajo colaborativo en proyectos de software.',
+    fullDesc: 'Permite el seguimiento del historial de cambios, gestion de ramas paralelas de trabajo, revision de codigo mediante Pull Requests e integracion continua en equipos de desarrollo.',
+    tags: ['Control de Versiones', 'Colaboracion', 'Ramas', 'Pull Requests'],
     officialUrl: 'https://git-scm.com',
     docsUrl: 'https://docs.github.com',
-    useCase: 'Gestión colaborativa del código fuente, trabajo en equipo y control de cambios del proyecto.'
+    useCase: 'Control de versiones del codigo fuente y gestion colaborativa del proyecto.'
   },
   {
     id: 'res-docker',
@@ -106,12 +105,12 @@ const resourcesData = [
     iconColor: '#2496ed',
     level: 'Avanzado',
     popularity: 93,
-    shortDesc: 'Plataforma de virtualización a nivel de sistema operativo para empaquetar aplicaciones en contenedores portables.',
-    fullDesc: 'Docker resuelve el problema de "en mi máquina sí funciona", asegurando que el software se ejecute de manera idéntica tanto en el entorno de desarrollo como en producción.',
-    tags: ['Contenedores', 'DevOps', 'Infraestructura', 'Microservicios'],
+    shortDesc: 'Plataforma de virtualizacion basada en contenedores para empaquetar software junto a todas sus dependencias.',
+    fullDesc: 'Garantiza la portabilidad de aplicaciones entre entornos locales y servidores de produccion mediante contenedores ligeros y reproducibles.',
+    tags: ['Contenedores', 'Infraestructura', 'DevOps', 'Aislamiento'],
     officialUrl: 'https://www.docker.com',
     docsUrl: 'https://docs.docker.com',
-    useCase: 'Despliegue homogéneo de servicios, creación de entornos aislados de desarrollo y testing.'
+    useCase: 'Estandarizacion de entornos de ejecucion y despliegue de microservicios.'
   },
   {
     id: 'res-tailwind',
@@ -121,27 +120,12 @@ const resourcesData = [
     iconColor: '#38bdf8',
     level: 'Principiante',
     popularity: 91,
-    shortDesc: 'Framework CSS orientado a utilidades para diseñar rápidamente interfaces modernas sin salir de tu HTML.',
-    fullDesc: 'Tailwind proporciona clases atómicas que aceleran el maquetado responsivo, soportan modo oscuro nativo y permiten una alta personalización a través de su archivo de configuración.',
-    tags: ['CSS', 'Diseño', 'Responsive', 'Utilidades'],
+    shortDesc: 'Framework de CSS enfocado en clases de utilidad para estructurar disenos modernos de forma directa y flexible.',
+    fullDesc: 'Acelera la creacion de interfaces con un sistema de diseno coherente, soporte para diseno responsivo y generacion de hojas de estilo ligeras mediante purgado de utilidades no utilizadas.',
+    tags: ['CSS', 'Diseno Web', 'Responsive', 'Utilidades'],
     officialUrl: 'https://tailwindcss.com',
     docsUrl: 'https://tailwindcss.com/docs',
-    useCase: 'Maquetación rápida de aplicaciones web con diseño responsivo y consistente.'
-  },
-  {
-    id: 'res-huggingface',
-    title: 'Hugging Face',
-    category: 'Inteligencia Artificial',
-    icon: 'fa-solid fa-brain',
-    iconColor: '#ffcc00',
-    level: 'Avanzado',
-    popularity: 94,
-    shortDesc: 'El hub abierto para modelos de Machine Learning, conjuntos de datos y aplicaciones de IA generativa.',
-    fullDesc: 'Hugging Face es el GitHub de la inteligencia artificial. Brinda acceso a miles de modelos de procesamiento de lenguaje natural (NLP), visión por computadora y generación de código como Llama, Mistral y Stable Diffusion.',
-    tags: ['IA', 'Machine Learning', 'Transformers', 'Modelos'],
-    officialUrl: 'https://huggingface.co',
-    docsUrl: 'https://huggingface.co/docs',
-    useCase: 'Integración de modelos de lenguaje, visión artificial y prototipos de IA generativa.'
+    useCase: 'Maquetacion rapida y estandarizada de interfaces web sin salir del markup.'
   },
   {
     id: 'res-mongodb',
@@ -150,68 +134,46 @@ const resourcesData = [
     icon: 'fa-solid fa-leaf',
     iconColor: '#47a248',
     level: 'Principiante',
-    popularity: 88,
-    shortDesc: 'Base de datos NoSQL basada en documentos flexibles BSON para aplicaciones modernas y esquemas ágiles.',
-    fullDesc: 'MongoDB ofrece alta escalabilidad horizontal y consultas avanzadas con agregaciones. Su formato similar a JSON facilita la integración directa con entornos JavaScript como Node.js.',
+    popularity: 89,
+    shortDesc: 'Base de datos orientada a documentos NoSQL con esquemas flexibles y almacenamiento en formato BSON.',
+    fullDesc: 'Diseñada para desarrolladores modernos que requieren alta velocidad en el modelado de datos y escalabilidad horizontal simple para colecciones heterogeneas de informacion.',
     tags: ['NoSQL', 'Documentos', 'BSON', 'Escalabilidad'],
     officialUrl: 'https://www.mongodb.com',
     docsUrl: 'https://www.mongodb.com/docs',
-    useCase: 'Catálogos de productos flexibles, almacenamiento de perfiles de usuario y prototipos rápidos.'
+    useCase: 'Almacenamiento de catalogos variables, registros de eventos y prototipado agil.'
   }
 ];
 
-// =============================================================================
-// 2. EQUIPO DE TRABAJO SENATI (Requisito 7: Nombres y Responsabilidades)
-// =============================================================================
+// 2. Informacion del Equipo de Trabajo SENATI (2 Estudiantes)
 const teamMembers = [
   {
-    name: 'Estudiante 1 (Líder / Integrador)',
-    role: 'Git Master & Arquitectura Web',
-    responsibility: 'Administración del repositorio en GitHub, control de ramas principales (main/develop), revisión de Pull Requests y diseño de la estructura HTML semántica.',
-    branch: 'feature/estructura-base',
-    avatarIcon: 'fa-user-tie',
-    githubUrl: 'https://github.com'
-  },
-  {
-    name: 'Estudiante 2 (Desarrollador UI/UX)',
-    role: 'Especialista en Diseño & CSS',
-    responsibility: 'Creación del sistema de diseño visual (paleta SENATI, dark mode), maquetado adaptable (responsive para PC y celulares), animaciones y accesibilidad.',
-    branch: 'feature/estilos-responsive',
-    avatarIcon: 'fa-paint-brush',
-    githubUrl: 'https://github.com'
-  },
-  {
-    name: 'Estudiante 3 (Desarrollador Frontend)',
-    role: 'Interactividad & Lógica JavaScript',
-    responsibility: 'Implementación del catálogo dinámico, buscador en tiempo real, filtrado por categorías, gestión de favoritos con LocalStorage y modales emergentes.',
+    name: 'Cristhian Santos',
+    role: 'Coordinador de Proyecto & Logica Frontend',
+    responsibility: 'Gestion del repositorio en GitHub, administracion del flujo de ramas (Git Flow), desarrollo de la logica JavaScript (catalogo dinamico, motor de busqueda y sistema de favoritos en LocalStorage).',
     branch: 'feature/catalogo-logica-js',
-    avatarIcon: 'fa-laptop-code',
-    githubUrl: 'https://github.com'
+    avatarIcon: 'fa-user-gear',
+    githubUrl: 'https://github.com/casasx25x'
   },
   {
-    name: 'Estudiante 4 (Control de Calidad & Docs)',
-    role: 'QA Tester & Documentación Git',
-    responsibility: 'Validación de funcionalidades cruzadas, pruebas en móviles, redacción de la guía de comandos Git y documentación técnica en README.md.',
-    branch: 'feature/pruebas-documentacion',
-    avatarIcon: 'fa-clipboard-check',
-    githubUrl: 'https://github.com'
+    name: 'Wilian Coveñas',
+    role: 'Disenador UI/UX & Maquetacion CSS',
+    responsibility: 'Diseno visual institucional bajo estandares SENATI, maquetado semantico en HTML5, adaptabilidad responsiva para PC y celulares mediante CSS Grid/Flexbox, accesibilidad y documentacion tecnica.',
+    branch: 'feature/estilos-responsive',
+    avatarIcon: 'fa-user-pen',
+    githubUrl: 'https://github.com/casasx25x/tarea-senati'
   }
 ];
 
-// =============================================================================
-// 3. ESTADO DE LA APLICACIÓN
-// =============================================================================
+// 3. Estado Central de la Aplicacion
 const state = {
   activeCategory: 'all',
   searchQuery: '',
   sortBy: 'popular',
   onlyFavorites: false,
-  favorites: JSON.parse(localStorage.getItem('devhub_favorites') || '[]')
+  favorites: JSON.parse(localStorage.getItem('devhub_senati_favs') || '[]')
 };
 
-// =============================================================================
-// 4. ELEMENTOS DEL DOM
-// =============================================================================
+// 4. Referencias al Document Object Model (DOM)
 const dom = {
   resourcesGrid: document.getElementById('resourcesGrid'),
   categoriesGrid: document.getElementById('categoriesGrid'),
@@ -243,9 +205,7 @@ const dom = {
   metricCategories: document.getElementById('metricCategories')
 };
 
-// =============================================================================
-// 5. INICIALIZACIÓN
-// =============================================================================
+// 5. Inicializacion de Componentes
 document.addEventListener('DOMContentLoaded', () => {
   renderCategoryPills();
   populateCategorySelect();
@@ -256,11 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateMetrics();
 });
 
-// =============================================================================
-// 6. RENDERIZADO DE CATEGORÍAS & RECURSOS
-// =============================================================================
-
-/** Obtiene lista única de categorías disponibles */
+// 6. Funciones de Renderizado
 function getCategories() {
   const categoriesMap = {};
   resourcesData.forEach(r => {
@@ -269,24 +225,22 @@ function getCategories() {
   return categoriesMap;
 }
 
-/** Renderiza tarjetas de acceso rápido por categoría */
 function renderCategoryPills() {
   const categories = getCategories();
   const categoryIcons = {
     'Frontend': 'fa-solid fa-code',
     'Backend': 'fa-solid fa-server',
     'Base de Datos': 'fa-solid fa-database',
-    'Móvil': 'fa-solid fa-mobile-screen',
-    'Herramientas': 'fa-solid fa-screwdriver-wrench',
-    'Inteligencia Artificial': 'fa-solid fa-brain'
+    'Movil': 'fa-solid fa-mobile-screen',
+    'Herramientas': 'fa-solid fa-screwdriver-wrench'
   };
 
   let html = `
     <div class="category-card ${state.activeCategory === 'all' ? 'active' : ''}" data-cat="all">
-      <div class="category-icon" style="background: rgba(0, 102, 255, 0.15); color: #38bdf8;">
-        <i class="fa-solid fa-border-all"></i>
+      <div class="category-icon" style="background: rgba(0, 80, 157, 0.15); color: #38bdf8;">
+        <i class="fa-solid fa-layer-group"></i>
       </div>
-      <div class="category-name">Todos</div>
+      <div class="category-name">Todas</div>
       <div class="category-count">${resourcesData.length} recursos</div>
     </div>
   `;
@@ -296,7 +250,7 @@ function renderCategoryPills() {
     const isActive = state.activeCategory === name ? 'active' : '';
     html += `
       <div class="category-card ${isActive}" data-cat="${name}">
-        <div class="category-icon" style="background: rgba(0, 229, 255, 0.12); color: #00e5ff;">
+        <div class="category-icon" style="background: rgba(0, 122, 255, 0.12); color: #0284c7;">
           <i class="${icon}"></i>
         </div>
         <div class="category-name">${name}</div>
@@ -307,7 +261,6 @@ function renderCategoryPills() {
 
   dom.categoriesGrid.innerHTML = html;
 
-  // Click handler para tarjetas de categoría
   dom.categoriesGrid.querySelectorAll('.category-card').forEach(card => {
     card.addEventListener('click', () => {
       const selected = card.getAttribute('data-cat');
@@ -316,23 +269,19 @@ function renderCategoryPills() {
   });
 }
 
-/** Llena el selector de categorías */
 function populateCategorySelect() {
   const categories = getCategories();
-  let html = `<option value="all">Todas las Categorías</option>`;
+  let html = `<option value="all">Todas las Categorias</option>`;
   Object.keys(categories).forEach(cat => {
     html += `<option value="${cat}">${cat}</option>`;
   });
   dom.categorySelect.innerHTML = html;
 }
 
-/** Filtra y ordena los recursos según el estado actual */
 function getFilteredResources() {
   return resourcesData.filter(item => {
-    // Filtro por categoría
     const matchesCategory = state.activeCategory === 'all' || item.category === state.activeCategory;
 
-    // Filtro por búsqueda de texto
     const query = state.searchQuery.trim().toLowerCase();
     const matchesSearch = !query || 
       item.title.toLowerCase().includes(query) ||
@@ -340,12 +289,10 @@ function getFilteredResources() {
       item.category.toLowerCase().includes(query) ||
       item.tags.some(tag => tag.toLowerCase().includes(query));
 
-    // Filtro solo favoritos
     const matchesFavorites = !state.onlyFavorites || state.favorites.includes(item.id);
 
     return matchesCategory && matchesSearch && matchesFavorites;
   }).sort((a, b) => {
-    // Ordenamiento
     if (state.sortBy === 'popular') {
       return b.popularity - a.popularity;
     } else if (state.sortBy === 'alpha') {
@@ -358,14 +305,10 @@ function getFilteredResources() {
   });
 }
 
-/** Renderiza la cuadrícula de recursos en el catálogo */
 function renderResources() {
   const filtered = getFilteredResources();
 
-  // Contador de resultados
   dom.resultsCounter.innerHTML = `Mostrando <strong>${filtered.length}</strong> de <strong>${resourcesData.length}</strong> recursos`;
-
-  // Renderizado de tags activos
   renderActiveFilterTags();
 
   if (filtered.length === 0) {
@@ -378,7 +321,7 @@ function renderResources() {
 
   dom.resourcesGrid.innerHTML = filtered.map(item => {
     const isFav = state.favorites.includes(item.id);
-    const tagsHtml = item.tags.map(t => `<span class="tag">#${t}</span>`).join('');
+    const tagsHtml = item.tags.map(t => `<span class="tag">${t}</span>`).join('');
 
     return `
       <article class="resource-card" id="card-${item.id}">
@@ -390,7 +333,7 @@ function renderResources() {
             <button class="copy-link-btn" title="Copiar enlace oficial" onclick="copyToClipboard('${item.officialUrl}', 'Enlace oficial copiado')">
               <i class="fa-solid fa-link"></i>
             </button>
-            <button class="fav-btn ${isFav ? 'active' : ''}" title="${isFav ? 'Quitar de favoritos' : 'Añadir a favoritos'}" onclick="toggleFavorite('${item.id}')">
+            <button class="fav-btn ${isFav ? 'active' : ''}" title="${isFav ? 'Quitar de favoritos' : 'Guardar en favoritos'}" onclick="toggleFavorite('${item.id}')">
               <i class="${isFav ? 'fa-solid' : 'fa-regular'} fa-bookmark"></i>
             </button>
           </div>
@@ -421,15 +364,14 @@ function renderResources() {
   }).join('');
 }
 
-/** Renderiza etiquetas de los filtros activos */
 function renderActiveFilterTags() {
   let tags = [];
 
   if (state.activeCategory !== 'all') {
-    tags.push(`Categoría: ${state.activeCategory} <i class="fa-solid fa-xmark" onclick="setCategoryFilter('all')"></i>`);
+    tags.push(`Categoria: ${state.activeCategory} <i class="fa-solid fa-xmark" onclick="setCategoryFilter('all')"></i>`);
   }
   if (state.searchQuery.trim()) {
-    tags.push(`Búsqueda: "${state.searchQuery}" <i class="fa-solid fa-xmark" onclick="clearSearch()"></i>`);
+    tags.push(`Busqueda: "${state.searchQuery}" <i class="fa-solid fa-xmark" onclick="clearSearch()"></i>`);
   }
   if (state.onlyFavorites) {
     tags.push(`Solo Favoritos <i class="fa-solid fa-xmark" onclick="toggleOnlyFavorites()"></i>`);
@@ -438,9 +380,6 @@ function renderActiveFilterTags() {
   dom.activeFilterTags.innerHTML = tags.map(tag => `<span class="active-tag">${tag}</span>`).join('');
 }
 
-// =============================================================================
-// 7. RENDERIZADO DEL EQUIPO SENATI
-// =============================================================================
 function renderTeam() {
   dom.teamGrid.innerHTML = teamMembers.map(member => `
     <div class="team-card">
@@ -457,15 +396,15 @@ function renderTeam() {
       <p class="member-desc">${member.responsibility}</p>
       
       <div class="git-contribution-box">
-        <strong><i class="fa-solid fa-code-branch"></i> Rama asignada:</strong>
+        <strong>Rama asignada en GitHub:</strong>
         <code>${member.branch}</code>
       </div>
 
       <div class="team-socials">
-        <a href="${member.githubUrl}" target="_blank" class="team-social-btn" title="Perfil GitHub">
+        <a href="${member.githubUrl}" target="_blank" rel="noopener noreferrer" class="team-social-btn" title="Perfil GitHub">
           <i class="fa-brands fa-github"></i>
         </a>
-        <button class="team-social-btn" title="Copiar nombre de rama" onclick="copyToClipboard('${member.branch}', 'Rama copiada al portapapeles')">
+        <button class="team-social-btn" title="Copiar nombre de rama" onclick="copyToClipboard('${member.branch}', 'Nombre de rama copiado')">
           <i class="fa-regular fa-copy"></i>
         </button>
       </div>
@@ -473,9 +412,7 @@ function renderTeam() {
   `).join('');
 }
 
-// =============================================================================
-// 8. GESTIÓN DE FAVORITOS (LOCALSTORAGE)
-// =============================================================================
+// 7. Favoritos con LocalStorage
 function toggleFavorite(id) {
   const index = state.favorites.indexOf(id);
   const resource = resourcesData.find(r => r.id === id);
@@ -489,7 +426,7 @@ function toggleFavorite(id) {
     showToast(`Guardado en favoritos: ${resourceName}`, 'success');
   }
 
-  localStorage.setItem('devhub_favorites', JSON.stringify(state.favorites));
+  localStorage.setItem('devhub_senati_favs', JSON.stringify(state.favorites));
   updateFavoritesBadge();
   renderResources();
 }
@@ -503,7 +440,7 @@ function toggleOnlyFavorites() {
   if (state.onlyFavorites) {
     dom.favoritesFilterBtn.classList.add('btn-primary');
     dom.favoritesFilterBtn.classList.remove('btn-outline');
-    showToast('Mostrando únicamente recursos favoritos', 'info');
+    showToast('Mostrando unicamente recursos guardados en favoritos', 'info');
   } else {
     dom.favoritesFilterBtn.classList.remove('btn-primary');
     dom.favoritesFilterBtn.classList.add('btn-outline');
@@ -511,9 +448,7 @@ function toggleOnlyFavorites() {
   renderResources();
 }
 
-// =============================================================================
-// 9. MODAL DE DETALLES
-// =============================================================================
+// 8. Modales Informativos
 function openResourceModal(id) {
   const item = resourcesData.find(r => r.id === id);
   if (!item) return;
@@ -528,29 +463,29 @@ function openResourceModal(id) {
     
     <div class="modal-meta-grid">
       <div class="modal-meta-item">
-        <span class="modal-meta-label">Nivel de Aprendizaje</span>
+        <span class="modal-meta-label">Nivel Tecnico</span>
         <span class="modal-meta-val">${item.level}</span>
       </div>
       <div class="modal-meta-item">
-        <span class="modal-meta-label">Popularidad Global</span>
-        <span class="modal-meta-val">${item.popularity}% de adopción</span>
+        <span class="modal-meta-label">Indice de Adopcion</span>
+        <span class="modal-meta-val">${item.popularity}% en la industria</span>
       </div>
       <div class="modal-meta-item" style="grid-column: span 2;">
-        <span class="modal-meta-label">Casos de Uso Recomendados</span>
+        <span class="modal-meta-label">Aplicacion Recomendada</span>
         <span class="modal-meta-val">${item.useCase}</span>
       </div>
     </div>
 
-    <h4>Etiquetas Clave</h4>
+    <h4>Etiquetas</h4>
     <div class="resource-tags" style="margin-top: 0.5rem;">
-      ${item.tags.map(t => `<span class="tag">#${t}</span>`).join('')}
+      ${item.tags.map(t => `<span class="tag">${t}</span>`).join('')}
     </div>
   `;
 
   dom.modalFooter.innerHTML = `
     <button class="btn btn-secondary" onclick="closeModal()">Cerrar</button>
     <a href="${item.docsUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-      <i class="fa-solid fa-book"></i> Documentación
+      <i class="fa-solid fa-book"></i> Documentacion
     </a>
     <a href="${item.officialUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
       <i class="fa-solid fa-arrow-up-right-from-square"></i> Sitio Oficial
@@ -568,7 +503,6 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-// Modal de Guía Git
 function openGitGuideModal() {
   dom.gitGuideModal.classList.add('open');
   dom.gitGuideModal.setAttribute('aria-hidden', 'false');
@@ -581,9 +515,7 @@ function closeGitGuideModal() {
   document.body.style.overflow = '';
 }
 
-// =============================================================================
-// 10. NOTIFICACIONES TOAST & COPIADO AL PORTAPAPELES
-// =============================================================================
+// 9. Mensajes Toast y Portapapeles
 function showToast(message, type = 'info') {
   const toast = document.createElement('div');
   toast.className = 'toast';
@@ -606,22 +538,19 @@ function showToast(message, type = 'info') {
     toast.style.transform = 'translateY(10px)';
     toast.style.transition = 'all 0.3s ease';
     setTimeout(() => toast.remove(), 300);
-  }, 3200);
+  }, 3000);
 }
 
 function copyToClipboard(text, successMessage = 'Copiado al portapapeles') {
   navigator.clipboard.writeText(text).then(() => {
     showToast(successMessage, 'success');
   }).catch(() => {
-    showToast('Error al intentar copiar al portapapeles', 'warning');
+    showToast('No se pudo copiar el texto', 'warning');
   });
 }
 
-// =============================================================================
-// 11. EVENT LISTENERS
-// =============================================================================
+// 10. Controladores de Eventos
 function setupEventListeners() {
-  // Buscador con debounce
   let debounceTimeout;
   dom.searchInput.addEventListener('input', (e) => {
     clearTimeout(debounceTimeout);
@@ -629,30 +558,25 @@ function setupEventListeners() {
     debounceTimeout = setTimeout(() => {
       state.searchQuery = e.target.value;
       renderResources();
-    }, 200);
+    }, 180);
   });
 
   dom.clearSearchBtn.addEventListener('click', clearSearch);
 
-  // Selector de categoría
   dom.categorySelect.addEventListener('change', (e) => {
     setCategoryFilter(e.target.value);
   });
 
-  // Selector de orden
   dom.sortSelect.addEventListener('change', (e) => {
     state.sortBy = e.target.value;
     renderResources();
   });
 
-  // Botón reset filtros
   dom.resetFiltersBtn.addEventListener('click', resetAllFilters);
   dom.emptyResetBtn.addEventListener('click', resetAllFilters);
 
-  // Botón favoritos navbar
   dom.favoritesFilterBtn.addEventListener('click', toggleOnlyFavorites);
 
-  // Cerrar modales
   dom.closeModalBtn.addEventListener('click', closeModal);
   dom.resourceModal.addEventListener('click', (e) => {
     if (e.target === dom.resourceModal) closeModal();
@@ -665,7 +589,6 @@ function setupEventListeners() {
     if (e.target === dom.gitGuideModal) closeGitGuideModal();
   });
 
-  // Tecla ESC para cerrar modales
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeModal();
@@ -673,19 +596,16 @@ function setupEventListeners() {
     }
   });
 
-  // Menú hamburguesa móvil
   dom.navToggle.addEventListener('click', () => {
     dom.navMenu.classList.toggle('open');
   });
 
-  // Cerrar menú al hacer click en enlaces
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
       dom.navMenu.classList.remove('open');
     });
   });
 
-  // Botones de copiado de snippets de Git
   document.querySelectorAll('.copy-cmd-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const cmd = btn.getAttribute('data-copy');
@@ -729,11 +649,10 @@ function resetAllFilters() {
 }
 
 function updateMetrics() {
-  if (dom.metricResources) dom.metricResources.textContent = `${resourcesData.length}+`;
+  if (dom.metricResources) dom.metricResources.textContent = `${resourcesData.length}`;
   if (dom.metricCategories) dom.metricCategories.textContent = Object.keys(getCategories()).length;
 }
 
-// Exportar globalmente para eventos en HTML (inline handlers)
 window.openResourceModal = openResourceModal;
 window.closeModal = closeModal;
 window.toggleFavorite = toggleFavorite;
