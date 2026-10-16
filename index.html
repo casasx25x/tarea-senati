@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dev HUB SENATI - Portal de Recursos Tecnologicos</title>
+  <meta name="description" content="Plataforma academica de recursos de programacion desarrollada por estudiantes de SENATI mediante control de versiones con Git y GitHub.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Barra de Navegacion Institucional -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#inicio" class="nav-brand">
+        <div class="brand-logo">
+          <i class="fa-solid fa-code"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Dev HUB</span>
+          <span class="brand-badge">SENATI</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu de navegacion">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="#inicio" class="nav-link active"><i class="fa-solid fa-house"></i> Inicio</a></li>
+          <li><a href="#catalogo" class="nav-link"><i class="fa-solid fa-layer-group"></i> Catalogo</a></li>
+          <li><a href="#categorias" class="nav-link"><i class="fa-solid fa-tags"></i> Categorias</a></li>
+          <li><a href="#equipo" class="nav-link"><i class="fa-solid fa-users"></i> Equipo</a></li>
+          <li><a href="#guia-git" class="nav-link"><i class="fa-solid fa-code-branch"></i> Control de Versiones</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="btn btn-sm btn-outline" id="favoritesFilterBtn" title="Ver recursos guardados">
+            <i class="fa-solid fa-bookmark"></i> <span id="favCountBadge">0</span>
+          </button>
+          <a href="https://github.com/casasx25x/tarea-senati" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+            <i class="fa-brands fa-github"></i> Repositorio
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. Seccion de Inicio -->
+    <section class="hero-section" id="inicio">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-pill">
+            <i class="fa-solid fa-graduation-cap"></i> Proyecto Academico SENATI - Git &amp; GitHub
+          </div>
+          <h1 class="hero-title">
+            Portal de Recursos Tecnologicos y Herramientas de Programacion
+          </h1>
+          <p class="hero-description">
+            Bienvenido a <strong>Dev HUB SENATI</strong>, una plataforma centralizada para explorar lenguajes, frameworks y bases de datos. Desarrollado de manera colaborativa aplicando ramas, commits semanticos y revision de Pull Requests.
+          </p>
+          <div class="hero-actions">
+            <a href="#catalogo" class="btn btn-lg btn-primary">
+              <i class="fa-solid fa-magnifying-glass"></i> Explorar Catalogo
+            </a>
+            <a href="#equipo" class="btn btn-lg btn-secondary">
+              <i class="fa-solid fa-users"></i> Integrantes del Equipo
+            </a>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric-card">
+              <span class="metric-number" id="metricResources">9</span>
+              <span class="metric-label">Recursos Seleccionados</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-card">
+              <span class="metric-number" id="metricCategories">5</span>
+              <span class="metric-label">Categorias Tecnicas</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-card">
+              <span class="metric-number">2</span>
+              <span class="metric-label">Integrantes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-graphic">
+          <div class="code-window">
+            <div class="window-header">
+              <span class="dot dot-neutral"></span>
+              <span class="dot dot-neutral"></span>
+              <span class="dot dot-neutral"></span>
+              <span class="window-title">flujo-colaborativo.sh</span>
+            </div>
+            <div class="window-body">
+              <pre><code><span class="cmd-comment"># Flujo de trabajo en ramas independientes</span>
+<span class="cmd-keyword">git</span> checkout -b feature/catalogo-logica-js
+<span class="cmd-comment"># Confirmar cambios con commits descriptivos</span>
+<span class="cmd-keyword">git</span> commit -m <span class="cmd-str">"feat(catalogo): busqueda y filtros"</span>
+<span class="cmd-comment"># Publicar rama para revision</span>
+<span class="cmd-keyword">git</span> push origin feature/catalogo-logica-js
+<span class="cmd-comment"># Solicitud de integracion</span>
+<span class="cmd-info">[PULL REQUEST CREADO Y FUSIONADO EN MAIN]</span></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Acceso Rapido por Categorias -->
+    <section class="section categories-section" id="categorias">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-filter"></i> Clasificacion</span>
+          <h2 class="section-title">Categorias de Programacion</h2>
+          <p class="section-subtitle">Selecciona una tecnologia para filtrar los recursos de forma automatica.</p>
+        </div>
+
+        <div class="categories-grid" id="categoriesGrid">
+          <!-- Renderizado dinamico desde JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 2, 3, 4. Catalogo de Recursos con Buscador y Filtros -->
+    <section class="section catalog-section" id="catalogo">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-layer-group"></i> Catalogo Tecnico</span>
+          <h2 class="section-title">Recursos de Programacion</h2>
+          <p class="section-subtitle">Ficha tecnica, casos de uso recomendados y enlaces directos a la documentacion oficial.</p>
+        </div>
+
+        <!-- Barra de Control: Buscador y Filtros -->
+        <div class="filter-toolbar">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input 
+              type="text" 
+              id="searchInput" 
+              placeholder="Buscar por palabra clave (ejemplo: React, API, Python, Base de Datos)..." 
+              autocomplete="off"
+            >
+            <button class="clear-search-btn" id="clearSearchBtn" title="Limpiar busqueda">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="filter-controls">
+            <div class="select-wrapper">
+              <i class="fa-solid fa-layer-group select-icon"></i>
+              <select id="categorySelect" aria-label="Filtrar por categoria">
+                <option value="all">Todas las Categorias</option>
+              </select>
+            </div>
+
+            <div class="select-wrapper">
+              <i class="fa-solid fa-arrow-down-short-wide select-icon"></i>
+              <select id="sortSelect" aria-label="Ordenar recursos">
+                <option value="popular">Mayor adopcion</option>
+                <option value="alpha">Nombre alfabetico (A - Z)</option>
+                <option value="difficulty">Nivel de aprendizaje</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Barra de Estado de Filtrado -->
+        <div class="filter-status-bar">
+          <span class="results-counter" id="resultsCounter">Mostrando <strong>0</strong> recursos</span>
+          <div class="active-tag-container" id="activeFilterTags"></div>
+          <button class="btn btn-sm btn-ghost reset-btn" id="resetFiltersBtn">
+            <i class="fa-solid fa-rotate-left"></i> Restablecer filtros
+          </button>
+        </div>
+
+        <!-- Cuadricula de Recursos -->
+        <div class="resources-grid" id="resourcesGrid">
+          <!-- Inyectado dinamicamente con app.js -->
+        </div>
+
+        <!-- Estado sin resultados -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+          <div class="empty-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <h3>No se encontraron coincidencias</h3>
+          <p>Intenta con otros terminos de busqueda o selecciona otra categoria.</p>
+          <button class="btn btn-primary" id="emptyResetBtn">
+            <i class="fa-solid fa-rotate-left"></i> Mostrar todos los recursos
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Informacion del Equipo (2 Estudiantes) -->
+    <section class="section team-section" id="equipo">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-user-group"></i> Equipo de Trabajo</span>
+          <h2 class="section-title">Integrantes y Responsabilidades</h2>
+          <p class="section-subtitle">
+            Distribucion de roles tecnicos y asignacion de ramas de trabajo para la contribucion en Git y GitHub.
+          </p>
+        </div>
+
+        <div class="team-grid" id="teamGrid">
+          <!-- Inyectado con datos de Cristhian Santos y Wilian Coveñas -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Flujo Git & GitHub del Proyecto -->
+    <section class="section git-section" id="guia-git">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-code-commit"></i> Control de Versiones</span>
+          <h2 class="section-title">Metodologia de Trabajo Git &amp; GitHub</h2>
+          <p class="section-subtitle">
+            Estandar de ramas, convencion de commits y revision colaborativa mediante Pull Requests.
+          </p>
+        </div>
+
+        <div class="git-steps-grid">
+          <div class="git-step-card">
+            <div class="step-num">01</div>
+            <div class="step-icon"><i class="fa-solid fa-code-branch"></i></div>
+            <h3>1. Ramas Tematicas</h3>
+            <p>Se trabaja en ramas independientes para cada modulo, manteniendo protegida la rama <code>main</code>.</p>
+            <div class="code-snippet">
+              <code>git checkout -b feature/nombre-modulo</code>
+              <button class="copy-cmd-btn" data-copy="git checkout -b feature/nombre-modulo" title="Copiar"><i class="fa-regular fa-copy"></i></button>
+            </div>
+          </div>
+
+          <div class="git-step-card">
+            <div class="step-num">02</div>
+            <div class="step-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+            <h3>2. Commits Semanticos</h3>
+            <p>Mensajes estructurados y descriptivos con prefijos convencionales: <code>feat:</code>, <code>style:</code>, <code>fix:</code>.</p>
+            <div class="code-snippet">
+              <code>git commit -m "feat: modulo interactivo"</code>
+              <button class="copy-cmd-btn" data-copy='git commit -m "feat: modulo interactivo"' title="Copiar"><i class="fa-regular fa-copy"></i></button>
+            </div>
+          </div>
+
+          <div class="git-step-card">
+            <div class="step-num">03</div>
+            <div class="step-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+            <h3>3. Publicacion Remota</h3>
+            <p>Carga de la rama al repositorio central en GitHub para su posterior revision por pares.</p>
+            <div class="code-snippet">
+              <code>git push origin feature/nombre-modulo</code>
+              <button class="copy-cmd-btn" data-copy="git push origin feature/nombre-modulo" title="Copiar"><i class="fa-regular fa-copy"></i></button>
+            </div>
+          </div>
+
+          <div class="git-step-card">
+            <div class="step-num">04</div>
+            <div class="step-icon"><i class="fa-solid fa-code-pull-request"></i></div>
+            <h3>4. Revision y Fusion</h3>
+            <p>Apertura de Pull Request, verificacion del codigo fuente y fusion limpia hacia <code>main</code>.</p>
+            <div class="code-snippet">
+              <code>git merge --no-ff feature/nombre-modulo</code>
+              <button class="copy-cmd-btn" data-copy="git merge --no-ff feature/nombre-modulo" title="Copiar"><i class="fa-regular fa-copy"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="git-repo-banner">
+          <div class="banner-content">
+            <h3><i class="fa-brands fa-github"></i> Repositorio Oficial en GitHub</h3>
+            <p>Consulta el historial de commits, ramas y Pull Requests del proyecto en tiempo real.</p>
+          </div>
+          <button class="btn btn-primary" id="showGitGuideModalBtn">
+            <i class="fa-solid fa-terminal"></i> Ver Guia de Comandos Git
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal de Detalle de Recurso -->
+  <div class="modal-overlay" id="resourceModal" aria-hidden="true" role="dialog">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="closeModalBtn" aria-label="Cerrar ventana">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-header" id="modalHeader"></div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer" id="modalFooter"></div>
+    </div>
+  </div>
+
+  <!-- Modal de Guia de Comandos Git -->
+  <div class="modal-overlay" id="gitGuideModal" aria-hidden="true" role="dialog">
+    <div class="modal-card modal-lg">
+      <button class="modal-close-btn" id="closeGitModalBtn" aria-label="Cerrar guia">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-header">
+        <div class="modal-badge"><i class="fa-brands fa-git-alt"></i> Guia Tecnica SENATI</div>
+        <h2>Procedimiento Colaborativo en Git &amp; GitHub</h2>
+      </div>
+      <div class="modal-body">
+        <div class="git-instructions">
+          <h4>1. Clonar el repositorio y configurar identidad</h4>
+          <pre><code>git clone https://github.com/casasx25x/tarea-senati.git
+cd tarea-senati
+git config user.name "Tu Nombre"
+git config user.email "tu_correo@senati.pe"</code></pre>
+
+          <h4>2. Crear rama de trabajo individual</h4>
+          <pre><code>git checkout -b feature/tu-modulo</code></pre>
+
+          <h4>3. Registrar avances con commits claros</h4>
+          <pre><code>git add .
+git commit -m "feat: descripcion del cambio implementado"</code></pre>
+
+          <h4>4. Subir la rama a GitHub</h4>
+          <pre><code>git push origin feature/tu-modulo</code></pre>
+
+          <h4>5. Crear la Solicitud de Integracion (Pull Request)</h4>
+          <p>Ingresar a GitHub, seleccionar la rama correspondiente y abrir una solicitud hacia la rama <code>main</code> para revision.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="closeGitModalOkBtn">Cerrar Guia</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenedor de Notificaciones Toast -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Pie de Pagina Institucional -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <i class="fa-solid fa-code"></i>
+        </div>
+        <div>
+          <h3>Dev HUB SENATI</h3>
+          <p>Portal academico de recursos de programacion desarrollado para evaluacion colaborativa de Git y GitHub.</p>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Navegacion</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#catalogo">Catalogo</a></li>
+            <li><a href="#categorias">Categorias</a></li>
+            <li><a href="#equipo">Integrantes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Tecnologias</h4>
+          <ul>
+            <li>HTML5 Semantico</li>
+            <li>CSS3 Modular y Responsivo</li>
+            <li>JavaScript ES6+</li>
+            <li>Git &amp; GitHub</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Institucion</h4>
+          <p class="footer-institution"><i class="fa-solid fa-building-columns"></i> SENATI</p>
+          <p class="footer-course"><i class="fa-solid fa-laptop-code"></i> Escuela de Tecnologias de la Informacion</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-content">
+        <p>&copy; 2026 Dev HUB SENATI - Proyecto Colaborativo de Control de Versiones.</p>
+        <div class="footer-badges">
+          <span class="status-badge"><span class="pulse-dot"></span> Repositorio Activo</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
