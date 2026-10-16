@@ -22,10 +22,10 @@ El desarrollo se ejecuto aplicando buenas practicas profesionales de control de 
 
 ## 2. Integrantes del Equipo de Trabajo
 
-| Integrante | Rol Tecnico | Responsabilidad Asignada | Rama de Trabajo en Git |
-|------------|-------------|--------------------------|------------------------|
-| **Cristhian Santos** | Coordinador de Proyecto & Logica Frontend | Administracion del repositorio remoto en GitHub, diseno de la logica JavaScript (motor de busqueda reactivo, filtrado por tecnologias, almacenamiento de favoritos en LocalStorage y modales dinamicos). | `feature/catalogo-logica-js` |
-| **Wilian Coveñas** | Disenador UI/UX & Maquetacion CSS | Maquetado semantico en HTML5, arquitectura de estilos en CSS3 (variables, Flexbox y CSS Grid), optimizacion responsiva para PC y telefonos moviles, y redaccion de la documentacion tecnica. | `feature/estilos-responsive` |
+| Integrante | Usuario GitHub | Rol Tecnico | Responsabilidad Asignada | Rama de Trabajo en Git |
+|------------|----------------|-------------|--------------------------|------------------------|
+| **Cristhian Santos** | [@casasx25x](https://github.com/casasx25x) | Coordinador de Proyecto & Logica Frontend | Administracion del repositorio en GitHub, arquitectura de la logica en JavaScript (catalogo dinamico, motor de busqueda reactivo, filtrado por categorias, persistencia de favoritos en LocalStorage y modales accesibles). | `feature/catalogo-logica-js` |
+| **Wilian Coveñas** | [@WilianAlcs](https://github.com/WilianAlcs) | Disenador UI/UX & Maquetacion CSS | Maquetado semantico en HTML5, diseno visual con paleta institucional SENATI, adaptabilidad responsiva para PC y celulares con CSS Grid y Flexbox, accesibilidad y documentacion tecnica. | `feature/estilos-responsive` |
 
 ---
 
